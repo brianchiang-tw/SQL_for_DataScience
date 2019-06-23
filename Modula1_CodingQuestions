@@ -1,0 +1,83 @@
+For all of the questions in this quiz, we are using the Chinook database. 
+All of the interactive code blocks have been setup to retrieve data 
+only from this database.
+
+
+#_1
+
+Q:
+Retrieve all the records from the Employees table.
+
+A:
+590 Columbia Boulevard West
+
+
+
+SQL Query:
+
+SELECT * FROM Employees WHERE LastName='King' and FirstName='Robert'
+
+SQL Output:
+
++------------+----------+-----------+----------+-----------+---------------------+---------------------+-----------------------------+------------+-------+---------+------------+-------------------+-------------------+------------------------+
+| EmployeeId | LastName | FirstName | Title    | ReportsTo | BirthDate           | HireDate            | Address                     | City       | State | Country | PostalCode | Phone             | Fax               | Email                  |
++------------+----------+-----------+----------+-----------+---------------------+---------------------+-----------------------------+------------+-------+---------+------------+-------------------+-------------------+------------------------+
+|          7 | King     | Robert    | IT Staff |         6 | 1970-05-29 00:00:00 | 2004-01-02 00:00:00 | 590 Columbia Boulevard West | Lethbridge | AB    | Canada  | T1K 5N8    | +1 (403) 456-9986 | +1 (403) 456-8485 | robert@chinookcorp.com |
++------------+----------+-----------+----------+-----------+---------------------+---------------------+-----------------------------+------------+-------+---------+------------+-------------------+-------------------+------------------------+
+
+
+
+#_2:
+
+Q:
+Retrieve the FirstName, LastName, Birthdate, Address, City, and State 
+from the Employees table.
+
+A:
+Steve
+
+
+
+SQL Query:
+
+SELECT FirstName
+, LastName
+, Birthdate
+, Address
+, City
+, State
+FROM Employees
+WHERE Birthdate='1965-03-03 00:00:00'
+
+SQL Output:
+
++-----------+----------+---------------------+--------------+---------+-------+
+| FirstName | LastName | BirthDate           | Address      | City    | State |
++-----------+----------+---------------------+--------------+---------+-------+
+| Steve     | Johnson  | 1965-03-03 00:00:00 | 7727B 41 Ave | Calgary | AB    |
++-----------+----------+---------------------+--------------+---------+-------+
+
+
+
+#_3:
+
+Q:
+Retrieve all the columns from the Tracks table, but only return 20 rows.
+
+A:
+375418
+
+
+SQL Query:
+
+SELECT * 
+FROM Tracks
+WHERE Name='Princess of the Dawn'
+
+SQL Output:
+
++---------+----------------------+---------+-------------+---------+----------------------------+--------------+---------+-----------+
+| TrackId | Name                 | AlbumId | MediaTypeId | GenreId | Composer                   | Milliseconds |   Bytes | UnitPrice |
++---------+----------------------+---------+-------------+---------+----------------------------+--------------+---------+-----------+
+|       5 | Princess of the Dawn |       3 |           2 |       1 | Deaffy & R.A. Smith-Diesel |       375418 | 6290521 |      0.99 |
++---------+----------------------+---------+-------------+---------+----------------------------+--------------+---------+-----------+

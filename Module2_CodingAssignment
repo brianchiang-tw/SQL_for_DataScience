@@ -1,0 +1,300 @@
+All of the questions in this quiz refer to the open source Chinook Database. 
+Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names 
+to write accurate queries and get the appropriate answers.
+
+
+
+#_1 
+Run Query: Find all the tracks that have a length of 5,000,000 milliseconds or more.
+
+SQL Query:
+SELECT COUNT(DISTINCT TrackId)
+FROM Tracks
+WHERE Milliseconds > 5000000
+
+SQL Output:
++-------------------------+
+| COUNT(DISTINCT TrackId) |
++-------------------------+
+|                       2 |
++-------------------------+
+
+Q:
+How many tracks are returned?
+
+A:
+2
+
+
+
+#_2
+Run Query: Find all the invoices whose total is between $5 and $15 dollars.
+
+SQL Query:
+SELECT InvoiceId, Total
+FROM Invoices
+WHERE Total BETWEEN 5 and 15
+
+SQL Output:
++-----------+-------+
+| InvoiceId | Total |
++-----------+-------+
+|         3 |  5.94 |
+|         4 |  8.91 |
+|         5 | 13.86 |
+|        10 |  5.94 |
+|        11 |  8.91 |
+|        12 | 13.86 |
+|        17 |  5.94 |
+|        18 |  8.91 |
+|        19 | 13.86 |
+|        24 |  5.94 |
++-----------+-------+
+(Output limit exceeded, 10 of 168 total rows shown)
+
+While the query in this example is limited to 10 records, running the query correctly will indicate 
+Q: 
+How many total records there are - enter that number below.
+
+A:
+168
+
+
+
+#_3
+Run Query: Find all the customers from the following States: RJ, DF, AB, BC, CA, WA, NY.
+
+SQL Query:
+SELECT FirstName, LastName, State, Company
+FROM Customers
+WHERE State IN ('RJ','DF','AB','BC','CA','WA','NY')
+
+SQL Output:
++-----------+----------+-------+-----------------------+
+| FirstName | LastName | State | Company               |
++-----------+----------+-------+-----------------------+
+| Roberto   | Almeida  | RJ    | Riotur                |
+| Fernanda  | Ramos    | DF    | None                  |
+| Mark      | Philips  | AB    | Telus                 |
+| Jennifer  | Peterson | BC    | Rogers Canada         |
+| Frank     | Harris   | CA    | Google Inc.           |
+| Jack      | Smith    | WA    | Microsoft Corporation |
+| Michelle  | Brooks   | NY    | None                  |
+| Tim       | Goyer    | CA    | Apple Inc.            |
+| Dan       | Miller   | CA    | None                  |
++-----------+----------+-------+-----------------------+
+
+Q:
+What company does Jack Smith work for?
+
+A:
+Microsoft Corp
+
+
+
+#_4
+Run Query: Find all the invoices for customer 56 and 58 where the total was between $1.00 and $5.00.
+
+SQL Query:
+
+SELECT *
+FROM Invoices
+WHERE (CustomerId IN (56,58)) AND (Total BETWEEN 1 AND 5)
+
+SQL Output:
+
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+| InvoiceId | CustomerId | InvoiceDate         | BillingAddress      | BillingCity  | BillingState | BillingCountry | BillingPostalCode | Total |
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+|       119 |         56 | 2010-06-12 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  1.98 |
+|       142 |         56 | 2010-09-14 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  3.96 |
+|       337 |         56 | 2013-01-28 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  1.98 |
+|       120 |         58 | 2010-06-12 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.98 |
+|       315 |         58 | 2012-10-27 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.98 |
+|       338 |         58 | 2013-01-29 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  3.96 |
+|       412 |         58 | 2013-12-22 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.99 |
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+
+Q:
+What was the invoice date for invoice ID 315?
+
+A:
+2012-10-27
+
+
+
+#_5
+Run Query: Find all the tracks whose name starts with 'All'.
+
+SQL Query:
+
+SELECT TrackId, Name
+FROM Tracks
+WHERE Name LIKE 'All%'
+
+SQL Output:
+
++---------+----------------------------------------+
+| TrackId | Name                                   |
++---------+----------------------------------------+
+|      38 | All I Really Want                      |
+|     134 | All For You                            |
+|     385 | All Star                               |
+|    1009 | All My Life                            |
+|    1608 | All My Love                            |
+|    1892 | All Within My Hands                    |
+|    2192 | All or None                            |
+|    2274 | All Dead, All Dead                     |
+|    2888 | All the Best Cowboys Have Daddy Issues |
+|    2969 | All Because Of You                     |
++---------+----------------------------------------+
+(Output limit exceeded, 10 of 15 total rows shown)
+
+
+Q:
+While only 10 records are shown, the query will indicate 
+how many total records there are for this query - enter that number below.
+
+A:
+15
+
+
+
+#_6
+Run Query: Find all the customer emails that start with "J" and are from gmail.com.
+
+SQL Query:
+
+SELECT FirstName, LastName, Email
+FROM Customers
+WHERE Email LIKE 'J%@gmail.com'
+
+SQL Output:
+
++-----------+----------+---------------------+
+| FirstName | LastName | Email               |
++-----------+----------+---------------------+
+| Julia     | Barnett  | jubarnett@gmail.com |
++-----------+----------+---------------------+
+
+Q:
+Enter the one email address returned (you will likely need to scroll to the right) below.
+
+A:
+jubarnett@gmail.com
+
+
+
+#_7
+Run Query: Find all the invoices from the billing city Brasília, Edmonton, and Vancouver 
+and sort in descending order by invoice ID.
+
+SQL Query:
+
+SELECT *
+FROM Invoices
+WHERE BillingCity IN ('Brasília', 'Edmonton','Vancouver ')
+ORDER BY InvoiceId DESC
+
+SQL Output:
+
++-----------+------------+---------------------+----------------+-------------+--------------+----------------+-------------------+-------+
+| InvoiceId | CustomerId | InvoiceDate         | BillingAddress | BillingCity | BillingState | BillingCountry | BillingPostalCode | Total |
++-----------+------------+---------------------+----------------+-------------+--------------+----------------+-------------------+-------+
+|       362 |         14 | 2013-05-11 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           | 13.86 |
+|       351 |         14 | 2013-03-31 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           |  1.98 |
+|       319 |         13 | 2012-11-01 00:00:00 | Qe 7 Bloco G   | Brasília    | DF           | Brazil         | 71020-677         |  8.91 |
+|       264 |         13 | 2012-03-03 00:00:00 | Qe 7 Bloco G   | Brasília    | DF           | Brazil         | 71020-677         | 13.86 |
+|       253 |         13 | 2012-01-22 00:00:00 | Qe 7 Bloco G   | Brasília    | DF           | Brazil         | 71020-677         |  1.98 |
+|       230 |         14 | 2011-10-08 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           |  0.99 |
+|       178 |         14 | 2011-02-17 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           |  5.94 |
+|       156 |         14 | 2010-11-15 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           |  3.96 |
+|       133 |         14 | 2010-08-13 00:00:00 | 8210 111 ST NW | Edmonton    | AB           | Canada         | T6G 2C7           |  1.98 |
+|       132 |         13 | 2010-07-31 00:00:00 | Qe 7 Bloco G   | Brasília    | DF           | Brazil         | 71020-677         |  0.99 |
++-----------+------------+---------------------+----------------+-------------+--------------+----------------+-------------------+-------+
+(Output limit exceeded, 10 of 14 total rows shown)
+
+
+Q:
+What is the total invoice amount of the first record returned? 
+Enter the number below without a $ sign. 
+Remember to sort in descending order to get the correct answer.
+
+A:
+13.86
+
+
+
+#_8
+Run Query: Show the number of orders placed by each customer 
+(hint: this is found in the invoices table) and sort the result by the number of orders in descending order.
+
+SQL Query:
+
+SELECT CustomerId, COUNT(DISTINCT InvoiceId) As NumberOfOrders
+FROM Invoices
+GROUP BY CustomerId
+ORDER BY NumberOfOrders DESC
+
+SQL Output:
+
++------------+----------------+
+| CustomerId | NumberOfOrders |
++------------+----------------+
+|          1 |              7 |
+|          2 |              7 |
+|          3 |              7 |
+|          4 |              7 |
+|          5 |              7 |
+|          6 |              7 |
+|          7 |              7 |
+|          8 |              7 |
+|          9 |              7 |
+|         10 |              7 |
++------------+----------------+
+(Output limit exceeded, 10 of 59 total rows shown)
+
+Q:
+What is the number of items bought for the 8th person on this list? Enter that number below.
+
+A:
+7
+
+
+
+#_9
+
+Run Query: Find the albums with 12 or more tracks.
+
+SQL Query:
+
+SELECT AlbumId, Count(TrackId) As NumOfTrack
+FROM Tracks
+GROUP BY AlbumId
+HAVING NumOfTrack >= 12
+
+SQL Output:
+
++---------+------------+
+| AlbumId | NumOfTrack |
++---------+------------+
+|       5 |         15 |
+|       6 |         13 |
+|       7 |         12 |
+|       8 |         14 |
+|      10 |         14 |
+|      11 |         12 |
+|      12 |         12 |
+|      14 |         13 |
+|      18 |         17 |
+|      21 |         18 |
++---------+------------+
+(Output limit exceeded, 10 of 158 total rows shown)
+
+Q:
+While the number of records returned is limited to 10, the query, 
+if run correctly, will indicate how many total records there are. 
+Enter that number below.
+
+A:
+158

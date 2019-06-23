@@ -1,0 +1,113 @@
+
+
+
+#_1:
+
+Q:
+Which of the following statements is true regarding subqueries?
+
+A:
+Subqueries always process the innermost query first and the work outward.
+
+
+
+#_2:
+
+Q:
+If you can accomplish the same outcome with a join or a subquery, 
+which one should you always choose?
+
+Q:
+Joins are usually faster, but subquery can be more reliable, so it depends on your situation.
+
+
+
+#_3:
+
+Q:
+The following diagram is a depiction of what type of join?
+
+A:
+Inner Join
+
+
+
+#_4:
+
+Q:
+Select which of the following statements are true regarding inner joins. (Select all that apply)
+
+A:
+Inner joins are one of the most popular types of joins use
+Performance will most likely worsen with the more joins you make
+There is no limit to the number of table you can join with an inner join
+
+
+
+#_5:
+
+Q:
+Which of the following is true regarding Aliases? (Select all that apply.)
+
+A:
+SQL aliases are used to give a table, or a column in a table, a temporary name.
+Aliases are often used ti make column names more readable.
+An alias only exists for the duration of the query.
+
+
+
+#_6:
+
+Q:
+What is wrong with the following query?
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM LEFT JOIN ON Customers.CustomerID = Orders.CustomerID FROM Orders AND Customers
+ORDER BY
+CustomerName;
+
+
+A:
+The table name comes after the join condition
+
+
+
+#_7:
+
+Q:
+What is the difference between a left join and a right join?
+
+A:
+The only difference between a left and right join is the order in which the tables are relating.
+
+
+
+#_8:
+
+Q:
+If you perform a cartesian join on a table with 10 rows and a table with 20 rows, how many rows will there be in the output table?
+
+A:
+200 = 10 * 20
+
+
+
+#_9:
+
+Q:
+Which of the following statements about Unions is true? (select all that apply)
+
+A:
+The UNION operator is used to combine the result-set of two or more SELECT statements
+
+Each SELECT statement within UNION must have the same number of columns
+
+
+
+#_10:
+
+Q:
+Data scientists need to use joins in order to: (select the best answer)
+
+A:
+

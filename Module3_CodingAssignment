@@ -1,0 +1,283 @@
+All of the questions in this quiz refer to the open source Chinook Database. 
+Please familiarize yourself with the ER diagram in order to familiarize yourself 
+with the table and column names in order to write accurate queries and get the appropriate answers.
+
+ER Diagram:
+https://ucde-rey.s3.amazonaws.com/DSV1015/ChinookDatabaseSchema.png
+
+------------------------------------------------------------------------------------
+#_1:
+
+
+Q:
+Using a subquery, 
+find the names of all the tracks for the album "Californication".
+What is the title of the 8th track?
+
+A:
+Porcelain
+
+
+
+SQL Query:
+
+SELECT Name, AlbumID
+FROM Tracks
+WHERE AlbumId IN ( SELECT AlbumId
+  FROM Albums
+  WHERE Title='Californication'
+);
+
+SQL Output:
+
++-------------------+---------+
+| Name              | AlbumId |
++-------------------+---------+
+| Around The World  |     195 |
+| Parallel Universe |     195 |
+| Scar Tissue       |     195 |
+| Otherside         |     195 |
+| Get On Top        |     195 |
+| Californication   |     195 |
+| Easily            |     195 |
+| Porcelain         |     195 |
+| Emit Remmus       |     195 |
+| I Like Dirt       |     195 |
++-------------------+---------+
+(Output limit exceeded, 10 of 15 total rows shown)
+
+
+
+------------------------------------------------------------------------------------
+#_2: 
+
+Q:
+Find the total number of invoices for each customer 
+along with the customer's full name, city and email.
+
+After running the query described above, 
+what is the email address of the 5th person, 
+František Wichterlová? 
+Enter the answer below.
+
+A:
+frantisekw@jetbrains.com
+
+
+
+SQL Query:
+
+SELECT FirstName, LastName, City, Email, COUNT(I.CustomerId) AS InvoiceCount
+FROM Customers C 
+INNER JOIN Invoices I
+ON C.CustomerId = I.CustomerId
+GROUP BY C.CustomerId
+
+SQL Output:
+
++-----------+-------------+---------------------+--------------------------+--------------+
+| FirstName | LastName    | City                | Email                    | InvoiceCount |
++-----------+-------------+---------------------+--------------------------+--------------+
+| Luís      | Gonçalves   | São José dos Campos | luisg@embraer.com.br     |            7 |
+| Leonie    | Köhler      | Stuttgart           | leonekohler@surfeu.de    |            7 |
+| François  | Tremblay    | Montréal            | ftremblay@gmail.com      |            7 |
+| Bjørn     | Hansen      | Oslo                | bjorn.hansen@yahoo.no    |            7 |
+| František | Wichterlová | Prague              | frantisekw@jetbrains.com |            7 |
+| Helena    | Holý        | Prague              | hholy@gmail.com          |            7 |
+| Astrid    | Gruber      | Vienne              | astrid.gruber@apple.at   |            7 |
+| Daan      | Peeters     | Brussels            | daan_peeters@apple.be    |            7 |
+| Kara      | Nielsen     | Copenhagen          | kara.nielsen@jubii.dk    |            7 |
+| Eduardo   | Martins     | São Paulo           | eduardo@woodstock.com.br |            7 |
++-----------+-------------+---------------------+--------------------------+--------------+
+(Output limit exceeded, 10 of 59 total rows shown)
+
+
+
+------------------------------------------------------------------------------------
+Q_3:
+
+Q:
+Retrieve the track name, album, artistID, and trackID for all the albums.
+
+What is the song title of trackID 12 
+from the "For Those About to Rock We Salute You" album? Enter the answer below.
+
+A:
+Breaking The Rules
+
+
+
+SQL Query:
+
+SELECT Tracks.Name, A.Name AS Artist, Albums.Title AS Album, Tracks.TrackId
+FROM( (Tracks INNER JOIN Albums 
+ON Tracks.AlbumId = Albums.AlbumId)
+INNER JOIN Artists A
+ON A.ArtistId = Albums.ArtistId);
+
+SQL Output:
+
++-----------------------------------------+--------+---------------------------------------+---------+
+| Name                                    | Artist | Album                                 | TrackId |
++-----------------------------------------+--------+---------------------------------------+---------+
+| For Those About To Rock (We Salute You) | AC/DC  | For Those About To Rock We Salute You |       1 |
+| Put The Finger On You                   | AC/DC  | For Those About To Rock We Salute You |       6 |
+| Let's Get It Up                         | AC/DC  | For Those About To Rock We Salute You |       7 |
+| Inject The Venom                        | AC/DC  | For Those About To Rock We Salute You |       8 |
+| Snowballed                              | AC/DC  | For Those About To Rock We Salute You |       9 |
+| Evil Walks                              | AC/DC  | For Those About To Rock We Salute You |      10 |
+| C.O.D.                                  | AC/DC  | For Those About To Rock We Salute You |      11 |
+| Breaking The Rules                      | AC/DC  | For Those About To Rock We Salute You |      12 |
+| Night Of The Long Knives                | AC/DC  | For Those About To Rock We Salute You |      13 |
+| Spellbound                              | AC/DC  | For Those About To Rock We Salute You |      14 |
++-----------------------------------------+--------+---------------------------------------+---------+
+(Output limit exceeded, 10 of 3503 total rows shown)
+
+
+
+
+------------------------------------------------------------------------------------
+#_4:
+
+Q:
+Retrieve a list 
+with the managers last name, and the last name of the employees 
+who report to him or her.
+
+A:
+Callahan
+King
+
+
+
+SQL Query:
+
+SELECT M.LastName AS Manager,
+E.LastName AS Employee
+FROM Employees E 
+INNER JOIN Employees M
+ON E.ReportsTo = M.EmployeeID
+
+SQL Output:
+
++----------+----------+
+| Manager  | Employee |
++----------+----------+
+| Adams    | Edwards  |
+| Edwards  | Peacock  |
+| Edwards  | Park     |
+| Edwards  | Johnson  |
+| Adams    | Mitchell |
+| Mitchell | King     |
+| Mitchell | Callahan |
++----------+----------+
+
+------------------------------------------------------------------------------------
+#_5:
+
+Q:
+Find the name and ID of the artists who do not have albums.
+
+After running the query described above, 
+two of the records returned have the same last name. 
+Enter that name below.
+
+A:
+Gilberto
+
+
+SQL Query:
+
+SELECT Name AS Artist
+,Artists.ArtistId
+,Albums.Title AS Album
+FROM Artists
+LEFT JOIN Albums
+ON Artists.ArtistId = Albums.ArtistId
+WHERE Album IS NULL
+
+SQL Output:
+
++----------------------------+----------+-------+
+| Artist                     | ArtistId | Album |
++----------------------------+----------+-------+
+| Milton Nascimento & Bebeto |       25 |  None |
+| Azymuth                    |       26 |  None |
+| João Gilberto              |       28 |  None |
+| Bebel Gilberto             |       29 |  None |
+| Jorge Vercilo              |       30 |  None |
+| Baby Consuelo              |       31 |  None |
+| Ney Matogrosso             |       32 |  None |
+| Luiz Melodia               |       33 |  None |
+| Nando Reis                 |       34 |  None |
+| Pedro Luís & A Parede      |       35 |  None |
++----------------------------+----------+-------+
+(Output limit exceeded, 10 of 71 total rows shown)
+
+------------------------------------------------------------------------------------
+#_6:
+
+Q:
+Use a UNION to create a list of all the employee's and customer's first names and last names 
+ordered by the last name in descending order.
+
+A:
+Taylor
+
+
+
+SQL Query:
+
+SELECT FirstName, LastName
+FROM Employees
+UNION
+SELECT FirstName, LastName
+FROM Customers
+ORDER BY LastName DESC
+LIMIT 6
+
+SQL Output:
+
++-----------+--------------+
+| FirstName | LastName     |
++-----------+--------------+
+| Fynn      | Zimmermann   |
+| Stanisław | Wójcik       |
+| František | Wichterlová  |
+| Johannes  | Van der Berg |
+| François  | Tremblay     |
+| Mark      | Taylor       |
++-----------+--------------+
+
+
+
+------------------------------------------------------------------------------------
+#_7:
+
+Q:
+See if there are any customers 
+who have a different city listed in their billing city versus their customer city.
+
+A:
+0
+
+
+
+SQL Query:
+
+SELECT C.FirstName,
+       C.LastName,
+       C.City AS CustomerCity,
+       I.BillingCity
+FROM Customers C
+INNER JOIN Invoices I
+ON C.CustomerId = I.CustomerId
+WHERE CustomerCity != BillingCity
+
+SQL Output:
+
++-----------+----------+----------+----------+
+| FirstName | LastName | cstmCity | billCity |
++-----------+----------+----------+----------+
++-----------+----------+----------+----------+
+(Zero rows)

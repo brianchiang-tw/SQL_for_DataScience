@@ -1,0 +1,2382 @@
+### SQL for data science
+
+# Learning objectives
+
+# Define SQL
+
+# Discuss how SQL differs from other computer language
+
+# Explain how SQL is used in a database
+
+
+
+### What is SQL ?
+
+# Structured Query Language is a standard computer language for
+# relational database management and data manipulation
+
+# Used to query, insert, update and modif data
+
+    ## Recall: CURD
+    # 
+    # C: Create
+    # U: Update
+    # R: Read
+    # D: Delete
+
+# Used to communicate with databases
+
+# Statements are made up of descriptive words and are easy to learn
+
+# SQL is a non-procedural language:
+#
+#   Cannot write complete appliations
+#
+#   Simple, but powerful
+
+
+
+### How is SQL used?
+
+## SQL is all about data
+
+# Read/retrieve data
+# Write data: add data to a table
+# Update data: insrty new data
+
+
+
+### Database adminstrator or Data Scientist
+
+## Data administrator
+# Manages/govenrs entire database
+# Gives permissions to users
+# Determines access to data
+# Manages and create tables
+# Uses SQL to query and retrieve data
+
+
+## Data Scientist
+# End user of a database
+# Uses SQL to query and retrieve data
+
+
+
+### How do data scientist use SQL?
+
+# Retrieve data
+
+# May create their own table or test environent
+
+# Combine multiple sources together
+
+# Write complex queries for analysis
+
+
+
+### SQL and database management systems
+
+# How you write syntax will depend on what DBMS you are using
+
+# Each DBMS has its own "dialect"
+
+# SQL can translate
+
+# You will tweak based on the "dialect" you DBS speaks
+
+
+
+### Relational Database Management Systems
+
+# Microsoft SQL Server
+
+# IBM DB2 Oracle
+
+# Sybase ASE
+
+# PostgreSQL
+
+# MySQL
+
+# Apache Open Office Base
+
+# SQLite
+
+
+
+### Learning objectives
+
+# Thinking before codeing is importnat
+#
+#   Before we start to write code or write our query, 
+# think about what the problem is we're trying to solve.
+
+# Crucial to understand how the database relates to one another
+
+# Describe what a database is
+
+
+
+### Understand your data
+
+# Understand the business process or subject matter the data is modeled after
+
+# Know the business rules
+
+# Understand how you data is organized and structured in the table (modeled)
+
+
+
+### Why this is worthwhile
+
+# Get more accurate results
+
+# Speed up you work
+
+# Have less rework
+
+
+
+### Comparison betweeen database and table
+
+## Database:
+# a container (usually a file or set of files) to store organized data
+# a set of related information
+
+## Tables:
+# a structured list of data or a specific type
+
+
+
+### Columns and Rows
+
+# Column: a single field in a table - all tables are made up of one or more columns
+
+# Row: a record in a table
+
+
+
+### The evolution fo data models
+
+# Data modeling
+
+# Relational database system
+
+# Discuss advent of relational databses in SQL
+
+
+
+### What is data modeling?
+
+# Organizes and structures information into multiple, related tables
+
+# Can represent a business process or show relationship between usiness processes
+
+# Should represent real world as closely as possible
+
+
+
+### Types of Data Models
+
+# Models for prediction built by data scientists.
+
+# Data model as data tables represented and organized in a database
+
+
+
+### SQL in a big data world
+
+# NoSQL - not only SQL
+
+# A mechanism for storage and retrieval of unstructured data modeled by means
+# other than tabular relations in relational databases
+
+
+
+### Learning objectives
+
+# Define and describe both relational and transactional database models
+
+# Define entities, attributes, and relationships
+
+# Describe and explain the differences between a one-one, one-many, and
+# many-many relationships
+
+# Primary keys in a database
+
+# How ER diagrams are used to document and illustrate relationships.
+
+
+
+### Relational v.s. Transactional Model
+
+## Relational Model
+# Allows for easy querying and data manipulation in an easy, logical
+# and intuitive way
+
+## Transactional Model
+# Operational databse
+# insurance claims within a healthcare database
+
+
+
+### Data model building blocks
+
+## Entity:
+#
+# Person, place thing or event distinguishable, unique, and distinct
+
+## Attribute:
+#
+# A characteristic of an entity
+
+## Relationship:
+#
+# Describes association among entities
+#
+# One-to-many
+# Many-to-many
+# one-to-one
+
+
+
+### Data model building blocks
+
+# One-to-many: customer to invoices
+
+# Many-to-many: student to classes
+
+# One-to-one: manager to store
+
+
+
+### ER Diagrams
+
+## ER(i.e., Entity-Relationship) model
+# It is composed of entity types and specifies relationships that can
+# exist between instances of those entity types
+
+
+
+### ER Diagrans
+
+# Show relationship
+
+# Business process
+
+# Represened visually
+
+# Show links (primary keys)
+
+
+
+### Primary keys and Foreign keys
+
+## Primary key
+# A column (or set of columns) whose values uniquely identify every row in a table.
+
+## Foreign key
+# One or more columns that can be used together to identify a single row in another table.
+
+
+
+### ER diagram Notation
+
+# Chen Notation
+
+# Crow's Foot Notation
+
+# UML Class Diagram Notation
+
+
+
+### Learning objective
+
+# Write a basic "SELECT" statement
+
+# Tell a database which table your data will com "FROM"
+
+# "SELECT" either all or particular columns from a table in a query
+
+# Limit the amount of data which is reurned in a query
+
+
+
+### The SELECt Statement
+
+# Need to specify two pieces of information to use a SELECT statement:
+# what you want and where you want to select it from.
+
+# Example:
+# SELEC prod_name FROM Products;
+
+# Output:
+# prod_name
+# ----------
+# Shampoo
+# Toothpaste
+# Deodorant
+# Toothbrush
+
+
+
+### Retrieving Multiple Columns
+
+# Add multiple column names, be sure to use a comma
+
+# Example:
+# SELECT prod_name, prod_id, prod_price FROM Products;
+
+# Example:
+# SELECT    prod_name
+#           ,prod_id
+#           ,prod_price
+# FROM Products
+
+
+
+### Retrieving Multi Columns using a wildcard
+
+# Request all columns by using the asterisk (*) wildcard character
+# instead of column names
+
+# Example:
+# SELECT * FROM Products
+
+
+
+## Recall
+
+## FROM where:
+# A "SELECT" statement must always say where you wnat data selected from
+
+# SELECT what
+# A "SELECT" sttement must always say what you want selected
+
+
+
+### Limit results
+
+# If your database is large
+
+# You might only want to see a sample of the data
+
+# Example:
+# "SELECT" columns you wish to see
+# "FROM" specific table
+# "LIMIT" number of records
+
+
+
+### Limiting results using different syntaxes
+
+## SQLite:
+# Example:
+#
+# SELECT prod_name
+# FROM Products
+# LIMIT 5;
+
+
+
+## Oracle:
+# Examples:
+#
+# SELECT prod_name
+# FROM Products
+# WHERE ROWNUM <= 5;
+
+
+
+## DB2
+# Examples:
+#
+# SELECT prod_name
+# FROM Products
+# FETCH FIRST 5 ROWS ONLY;
+
+
+
+### Learning objectives
+
+# Discuss situations where it's beneficial to create new tables
+
+# Create new tables within an existing database
+
+# Write data to a new table
+
+# Defining whether columns can accept NULL values or not
+
+
+
+### Why tables are useful
+
+# Use tables to make models and predictiosn
+
+# Create dashboards
+
+# Visualize data with other tools
+
+# Extract data from other sources
+
+
+
+### Creating your own table
+#
+# CREATE TABLE Shoes
+# (
+# Id      char(10)        PRIMARY KEY,
+# Brand   char(10)        NOT NULL,
+# Type    char(250)       NOT NULL,
+# Color   char(250)       NOT NULL,
+# Price   decimal(8,2)    NOT NULL,
+# Desc    Varchar(750)    NULL
+# );
+
+
+
+### Adding data to the table
+
+# INSERT INTO Shoes
+# VALUES ('14535974'
+#         ,'Gucci'
+#         ,'Slippers'
+#         ,'Pink'
+#         ,'695.00'
+#         ,NULL
+#                    );
+
+
+
+# INSERT INTO Shoes
+#       (Id
+#       ,Brand
+#       ,Type 
+#       ,Color 
+#       ,Price 
+#       ,Desc
+#       )
+# VALUES ('14535974'
+#         ,'Gucci'
+#         ,'Slippers'
+#         ,'Pink'
+#         ,'695.00'
+#         ,NULL
+#       );
+
+
+
+### Create temporary tables
+
+### Learning objectives
+
+# Create temporary tables
+
+# Describe limitations of temporary tables
+
+# Discuss stategies for researching syntax for particular database management systems
+
+
+
+### Why create temporary tables
+
+# temporary tables will be deleted when current session is terminated
+
+# Faster than creating a real table
+
+# Useful for compex queries using subsets and joins
+
+
+
+### How to create a temporary table
+CREATE TEMPORARY TABLE Sandals as
+(
+    SELECT *
+    FROM Shoes
+    WHERE shoe_type='sandals'
+)
+
+
+
+### Never stop Learning
+#
+# Key words: statements, RDBMS
+#
+# Research how to:
+# Update Tables
+# Delete tables
+
+
+
+### Adding Comments to SQL
+
+### Learning objectives
+
+# Discuss importance of writing comments as a part of your code
+
+# Describe several comment syntaxes used in SQL
+
+# Write comments in your code
+
+
+
+### Adding comments
+
+## Single line, by adding "--"
+
+SELECT shoe id 
+--, brand_id
+,shoe_name
+from shoes
+
+
+
+## Section, by adding /* ... */
+
+SELECT shoe_id
+/*,braind_id
+,shoe_name
+*/
+from shoes
+
+
+
+### Source Code Editors
+
+# Environment separate from the database where you can write and edit code
+
+# e.g.: Notepad++
+
+# Automatically highlights and indents statements
+
+# Helps you write clean code
+
+
+
+### Quiz
+
+SELECT
+albums.title as album_title,
+tracks.name as track_name 
+FROM tracks 
+JOIN albums ON tracks.albumid = albums.albumid
+
+
+
+output:
+
++---------------------------------------+-----------------------------------------+
+| album_title                           | track_name                              |
++---------------------------------------+-----------------------------------------+
+| For Those About To Rock We Salute You | For Those About To Rock (We Salute You) |
+| For Those About To Rock We Salute You | Put The Finger On You                   |
+| For Those About To Rock We Salute You | Let's Get It Up                         |
+| For Those About To Rock We Salute You | Inject The Venom                        |
+| For Those About To Rock We Salute You | Snowballed                              |
+| For Those About To Rock We Salute You | Evil Walks                              |
+| For Those About To Rock We Salute You | C.O.D.                                  |
+| For Those About To Rock We Salute You | Breaking The Rules                      |
+| For Those About To Rock We Salute You | Night Of The Long Knives                |
+| For Those About To Rock We Salute You | Spellbound                              |
+| Balls to the Wall                     | Balls to the Wall                       |
+| Restless and Wild                     | Fast As a Shark                         |
+| Restless and Wild                     | Restless and Wild                       |
+| Restless and Wild                     | Princess of the Dawn                    |
+| Let There Be Rock                     | Go Down                                 |
+| Let There Be Rock                     | Dog Eat Dog                             |
+| Let There Be Rock                     | Let There Be Rock                       |
+| Let There Be Rock                     | Bad Boy Boogie                          |
+| Let There Be Rock                     | Problem Child                           |
+| Let There Be Rock                     | Overdose                                |
+| Let There Be Rock                     | Hell Ain't A Bad Place To Be            |
+| Let There Be Rock                     | Whole Lotta Rosie                       |
+| Big Ones                              | Walk On Water                           |
+| Big Ones                              | Love In An Elevator                     |
+| Big Ones                              | Rag Doll                                |
++---------------------------------------+-----------------------------------------+
+(Output limit exceeded, 25 of 3503 total rows shown)
+
+
+
+### Learning objectives
+
+# Describe the basics of filtering your data
+
+# Use the "WHERE" clause with common operators
+
+# Use the "BETWEEN" clause
+
+# Explain the concept of a "NULL" values
+
+
+
+### Why filtering
+
+# Be specific about the data you want to retrieve
+
+# Reduce the number of records you retrieve
+
+# Increase query performance
+
+# Reduce the strain on the client application
+
+# Governance limitations
+
+
+
+### WHERE Clause operators
+
+SELECT column_name, column_name
+FROM table_name
+WHERE column_name operator value;
+
+
+
+### WHERE Clause operators
+
+#------------------------------------------------------------------------------------------------
+# operator    |    Description
+#------------------------------------------------------------------------------------------------
+# =           |    Equal
+#------------------------------------------------------------------------------------------------
+# <>          |    Not equal. Note: In some version of SQL this operator may be written as !=
+#------------------------------------------------------------------------------------------------
+# >           |    Greater than
+#------------------------------------------------------------------------------------------------
+# <           |    Less than
+#------------------------------------------------------------------------------------------------
+# >=          |    Greater than or equal
+#------------------------------------------------------------------------------------------------
+# <=          |    Less than or equal
+#------------------------------------------------------------------------------------------------
+# BETWEEN     |    Between an inclusive range
+#------------------------------------------------------------------------------------------------
+# IS NULL     |    Is a null value
+#------------------------------------------------------------------------------------------------
+
+# Example:
+SELECT ProductName, UnitPrice, SupplierID FROM Products WHERE UnitPrice >= 75;
+
+SELECT ProductName, UnitPrice, SupplierID FROM Products WHERE ProductName <>'Alice';
+
+SELECT ProductName, UnitPrice, SupplierID, UnitsInStock FROM Products WHERE UnitsInStock BETWEEN 15 and 80;
+
+SELECT ProductName, UnitPrice, SupplierID, UnitsInStock FROM Products WHERE ProductName IS NULL;
+
+
+
+### Learning objective
+
+# Use the IN and OR operators to filter your data and get results you want
+
+# Differentiate between use of the IN and BETWEEN operators
+
+# Discuss importance of order of operations
+
+# Explain how and when to use the NOT operator
+
+
+
+### IN operator
+
+# Specifies a range of conditions
+
+# Comma delimited list of values
+
+# Enclosed in ()
+
+
+
+### IN Operator Example
+
+SELECT ProductID, UnitPrice, SupplierID FROM Products WHERE SupplierID IN (9, 10, 11);
+
+
+
+
+### OR Operator
+
+# DBMS will not evaluate the second conditions in a WHERE clause if the first condition is matter
+
+# Use for any rows matching the specific conditions
+
+
+
+### OR Operator Example
+
+SELECT ProductName, ProductID, UnitPrice, SupplierID, ProductName FROM Products WHERE ProductName = 'Tofu' OR 'Konbu'
+
+
+
+### IN vs. OR
+
+## In works the same as OR
+
+## Benefits of IN
+
+#   Long list of options 
+
+#   IN executes faster than OR
+
+#   Don't have to think about the order with IN 
+
+#   Can contain another SELECT
+
+
+
+### OR with and
+
+SELECT ProductID, UnitPrice, SuppleirID FROM Products 
+WHERE ( SupplierID = 9 OR SupplierID = 11 )
+AND UnitPrice > 15;
+
+
+
+### Order of operations
+
+# Can contain AND and OR operators
+
+# SQL processes AND before OR
+
+# Use ()
+
+### Note:
+#
+#   Don't rely on the default order of operations.
+# You are better being specific and getting in the habit of using the ()
+
+
+
+### NOT Operator
+
+SELECT * FROM Employees
+WHERE NOT City='London' AND NOT City='Seattle';
+
+
+
+### Learning objectives
+
+# Explain the concept of wildcards advantages and disadvantages usefulness
+
+# Describe how to use the LIKE operator with wildcard
+
+# Write appropriate syntax when using wildcards
+
+
+
+### What are wildcards?
+
+# Can only be used with strings
+
+# Cannot be used for non-text datatypes
+
+# Helpful for data scientist as they explore string variable
+
+
+
+### Using % wildcards
+
+Wildcard        Action
+---------------------------------------------------------------
+'%Pizza'        Grab anything ending with the word pizza
+---------------------------------------------------------------
+'Pizza%'        Grab anything after the word pizza
+---------------------------------------------------------------
+'%Pizza%'       Grab anything before and after the word pizza
+---------------------------------------------------------------
+
+
+
+### Using % wildcards
+
+Wildcard        Action
+-----------------------------------------------------------------------------------
+'S%E'           Grab anything that starts with "S" and ends with "E" (Like Sadie)
+-----------------------------------------------------------------------------------
+'t%@gmail.com'  Grab gmail addresses that start with 't'
+-----------------------------------------------------------------------------------
+
+
+
+### Using % wildcards
+
+% wildcard will not match NULLs
+
+NULL represents no value in a column
+
+
+
+### Underscore _ Wildcard
+
+# Matches a single character
+
+# Is not supported by DB2
+
+WHERE size like '_pizza'
+
+Output:
+spizza
+mpizza
+lpizza
+
+
+
+### Bracket [] Wildcard
+
+# Used to specify a set of characters in a specific location
+
+# Does not work with all DBMS
+
+# Does not work with SQLite
+
+
+
+### Downsides of wildcards
+
+# Take longer to run 
+
+# Better to use another operator (if possible):
+=, <, =>, and etc.
+
+# Statements with wildcards will take longer to run if used at the end of search patterns
+
+# Placement of wildcards is important
+
+
+
+### Learning objectives of Sorting with ORDER by
+
+# Discuss the importance of sorting data for analysis purposes
+
+# Explain some of the rules related to using the ORDER BY clause
+
+# Use the ORDER BY clause to sort data either in ascending or descending order
+
+
+
+### Why sort data?
+
+# Data displayed appears in the order of the underlying tables.
+
+# Updated and deleted data can change this order.
+
+# Sequence of retrieved data cannot be assumed if order was not specified.
+
+# Sorting data logically helps keep information you want on Toothpaste
+
+# ORDER BY clause allows user to sort data by particular columns
+
+# Example
+SELECT column 
+FROM database
+ORDER BY characteristic 
+
+
+
+### Rules for ORDER BY
+
+# Takes the name of one or more columns
+
+# Add a commna "," after each additional column name
+
+# Can sort by a column not retrieved
+
+# Must always be the last clause in a select statement
+
+
+
+### Sorting by column position
+
+ORDER BY 2, 3
+
+2 means 2nd column
+
+3 means 3rd column, etc.
+
+
+
+# Sort direction
+
+# DESC for descending order
+
+# ASC for ascending order
+
+# Only applies to the column names it directly precedes
+
+
+
+### Math operations
+
+# Perform basic math calculations using our data
+
+# Discuss the order of operations
+
+# Describe analysis possibilities of using math operators and SQL together
+
+
+
+### Math operators
+
+Operator        Description
+---------------------------------------
++               Addition
+---------------------------------------
+-               Subtraction
+---------------------------------------
+*               Multiplication
+---------------------------------------
+/               Division
+---------------------------------------
+
+
+
+### Multiplication Example
+
+# Total units on order multipplied by the unit price to calculate the total order comments
+
+SELECT
+ProductID
+, UnitsOnOrder
+, UnitPrice
+, UnitsOnOrder * UnitPrice AS Total_Order_Cost
+FROM Products
+
+
+
+### Order of operations
+
+# Parentheses
+# Exponents
+# Multiplication
+# Division
+# Addition
+# Substraction
+
+# A pithy formula for order of operations
+"Please excuse my dear Aunt Sally"
+
+
+### Combining Math operations
+
+SELECT
+ProductID
+,Quantity
+,UnitPrice
+,Discount
+,(UnitPrice-Discount)/Quantity AS Total_Order_Cost
+FROM OrderDetails
+
+
+
+### Learning object of Aggregate Functions
+
+# Describe various aggregate Functions
+
+# Explain how each of the aggregate functions can help you to analyze data
+
+# Use various aggregate functions: Average, Count, Min, Max, and SUM to summarize and analyze data and
+
+# Describe the DISTINCT function
+
+
+
+### What are aggregate functions
+
+# Used to summarize data
+
+# Finding the highest and lowest values
+
+# Finding the total number of rows
+
+# Finding the average value
+
+
+
+### Aggregate Functions
+
+Functions           Description
+
+AVG                 Averages a column of values
+
+CONT                Counts the number of values
+
+MIN                 Finds the minimum value
+
+MAX                 Find the maximum value
+
+SUM                 Sums the column values
+
+
+
+### Average function
+
+# Rows containing NULL values are ignored by the AVERAGE function
+
+SELECT AVG(UnitPrice) AS avg_price FROM products
+
+
+
+### COUNT function
+
+# COUNT(*) - counts all the rows in a table containing values or NULL values
+
+SELECT COUNT(*) AS totl_customers
+FROM Customers;
+
+
+
+# COUNT( column ) - counts all the rows in a specific column ignoring NULL values
+
+SELECT COUNT(CustomerID) as
+total_customers
+FROM Customers
+
+
+
+### MAX and MIN Functions
+
+# NULL values are ignored by the MIN and MAX functions
+
+SELECT MAX(UnitPrice) AS max_prod_price FROM Products
+
+SELECT MAX(UnitPrice) AS max_prod_price, MIN(UnitPrice) AS min_prod_price FROM Products
+
+
+
+### SUM Aggregate Functions
+
+SELECT SUM(UnitPrice) AS total_prod_price FROM Products
+
+SELECT SUM(UnitPrice*UnitsInStock) AS total_price FROM Products WHERE SupplierID = 23;
+
+
+
+### Using DISTINCTon Aggregate Functions
+
+# If DISTINCT is not specified, ALL is assumed.
+
+# Cannot use DISTINCT on COUNT(*)
+
+# No value to use with MIN and MAX functions
+
+SELECT COUNT(DISTINCT CustomerID) FROM Customers
+
+
+
+### Learning objectives of Grouping Data with SQL
+
+# Perform some additional aggregtions using the GROUP BY and HAVING clauses
+
+# Discuss how NULLs are or aren't affected by GROUP BY and HAVING clauses
+
+# Use the GROUP BY and ORDER BY clauses together to better sort your data.
+
+
+
+### Learning objective of Grouping Data with SQL
+
+# Perform some additional aggregations using the GROUP BY and HAVING clauses
+
+# Discuss how NULLs are  or aren't affected by the GROUP BY and HAVING clauses
+
+# Use the "GROUP BY" and "ORDER B" clauses togerther to better sort your data
+
+
+
+### Grouping Data
+
+# Learn how to group data in order to summarize subsets of data
+
+# New clauses GROUP BY; HAVING
+
+# How to aggregate on a particular value
+
+
+
+### Grouping Example
+
+# Counts customers after group on region rahter than counting the whole value
+
+SELECT
+Region 
+,COUNT(CustomerID) AS total_custimers
+FROM Customers
+GROUP BY Region;
+
+
+
+### Additional GROUP BY information
+
+# GRUOP BY clause can contin multiple columns
+
+# Every column in your SELECT statement must be present in a GROUP BY clause,
+# except for aggregted calculations
+
+# NULLs will be grouped together if your GROUP BY column contains NULLs
+
+
+
+### HAVING Clause - Filtering for groups
+
+# WHERE does not work for groups
+
+# WHERE filters on rows
+
+# Instead use HAVING clause to filter for groups
+
+
+
+# Grouping Example
+
+SELECT CustomerID, COUNT(*) AS orders 
+FROM Orders 
+GROUP BY CustomerID
+HAVING COUNT (*) >= 2
+
+
+
+### WHERE vs. HAVING
+
+# WHERE filters before data is grouped
+
+# HAVING filters after data is grouped.
+
+# Rows eliminated by the WHERE clause will not be a included in the group
+
+
+
+### ORDER BY with GROUP BY
+
+# ORDER BY sorts data
+
+# GROUP BY does not sort data
+
+SELECT SupplierID, COUNT(*) AS Num_Prod
+FROM Products
+WHERE UnitPrice >= 4
+GROUP BY SupplierID
+HAVING COUNT (*) >= 2;
+
+
+
+### Putting it all togerther
+
+
+
+### Filtering is useful
+
+# Narrowing down your results
+
+# Increasing query & appliction performance
+
+# Understanding your data:
+#       Finding specific values
+#       Finding a range of values
+#       Finding blank values
+
+
+
+### Key SQL clauses
+
+------------------------------------------------------------------------------------------------------------------------
+Clause          Description                                         Required
+------------------------------------------------------------------------------------------------------------------------
+SELECT          Columns or expressions to be returned               Yes
+------------------------------------------------------------------------------------------------------------------------
+FROM            Table from which to retrieve data                   Only if selecting data from a table
+------------------------------------------------------------------------------------------------------------------------
+WHERE           Row-level filtering                                 No
+------------------------------------------------------------------------------------------------------------------------
+GROUP BY        Group specification                                 Only if calculating aggregates by group
+------------------------------------------------------------------------------------------------------------------------
+HAVING          Group-level filtering                               No
+------------------------------------------------------------------------------------------------------------------------
+ORDER BY        Output sort order                                   No
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+### Learning Objectives of using subquerirs
+
+# Define subqueries
+
+# Discuss advantages and disadvantage of using subqueries
+
+# Explain how subqueries help us merge data from two or more tables
+
+# Write more efficient subqueries
+
+
+
+### What are subqueries ?
+
+# Queries embedded into other queries.
+
+# Relational databases store data in multiple tables
+
+# Subqueries merge data from multiple source together
+
+# Helps with adding other filtering criteria
+
+
+
+### Problem setup: subqueries to filter
+
+# Need to know the region each customer is from who has had an order with frieght over 100
+
+1. Retrieve all customer IDs for orders with freight over 100
+
+2. Retrieve customer information
+
+3. Combine the two queries
+
+
+
+# Example
+
+SELECT DISTINCT customerID FROM Orders WHERE Freight > 100
+
+SELECT CustimerID, CompanyName, Region
+FROM Customers
+WHERE customerID IN (
+    SELECT customerID
+    FROM Orders
+    WHERE Freight > 100
+);
+
+
+
+### Working with Subquery Statements
+
+DBMS is performing two operations
+
+1. Getting the order numbers for the product selected
+
+2. Adding that to the WHERE clause and processing the overall SELECT statement
+
+
+
+### Learning objective of subquery best practie and consideration
+
+# Discuss how to write subquery within subqueries
+
+# Discuss performance limitations with overuse of subqueries
+
+# Explain how to use subqueries as calculations
+
+# Desvribe best practives using subqueries
+
+
+
+### Best practices with subquerues
+
+# There is no limit to the number of subqueries you can have
+
+# Performance slow when you nest too deeply
+
+# Subquery selects can only retrieve a single column
+
+
+
+### Subquery in subquery
+
+1. Order numbers for toothbrushes
+
+2. Customer ID's for those orders
+
+3. Customer information for those orders
+
+SELECT Customer_name, Customer_contact
+FROM Customers
+WHERE cust_id IN
+    SELECT customer_id
+    FROM
+    Orders
+    WHERE order_number IN
+        SELECT order_number
+        FROM OrderItems
+        WHERE prod_name = ('Toothbrush');
+
+
+
+### PoorSQL Website
+
+www.poorsql.com
+
+Website will pre-format code
+
+Uses proper indenting
+
+Code is easier to read and troubleshoot
+
+
+
+### Subquery for calculations
+
+# Total number of orders placed by every customer
+
+-------------------------------------------------------------
+Customer_name           Customer_State          Orders
+-------------------------------------------------------------
+Becky                       IA                      5
+-------------------------------------------------------------
+Nita                        CA                      6
+-------------------------------------------------------------
+Raj                         OH                      0 
+-------------------------------------------------------------
+Steve                       AZ                      1
+-------------------------------------------------------------
+
+
+SELECT customer_name, customer_state
+        (SELECT COUNT(*) AS orders
+        FROM Orders
+        WHERE Orders.customer_id = Customer.customer_id ) AS orders
+FROM customers 
+ORDER BY Customer_name       
+
+
+
+### The power of subqueries
+
+# Subqueries are powerful tools
+
+# Not always the best option due to performance
+
+# Next lession: using joins
+
+
+
+### Join Tables: An introduction
+
+### Learning objectives
+
+# Discuss the benefits of a relational databse system
+
+# Describe what a JOIN is and how to use the JOIN function to
+combine information from multiple tables
+
+# Describe how a key field is used to link data together
+
+
+
+### Benefits of breaking data into tables
+
+# Efficient storage
+
+# Easier manipulation
+
+# Greater scalability
+
+# Logically models a process
+
+# Tables are related through common values (keys)
+
+
+
+### Joins 
+
+# Associate correct records from each table on the fly
+
+# Allows data retrieval from multiple tables in one query
+
+# Joins are not physical - they persist fir the duration of the query execution.
+
+
+
+### Learning objectie of Cartesian joins
+
+# Define Cartesian (or Cross) joins
+
+# Describe some specific cases where cartesian joins are useful
+
+# Write the sppropriate SQL syntax to eastablish a Cartesian joins
+
+
+
+### What is a Cartesian (Cross) Join
+
+# Cross JOINs, each row from the first table jpins with all the rows of another table
+
+def CartesianJoin():
+
+    for e1 in list_1:
+        for e2 in list_2:
+            Join(e1, e2)
+
+
+
+### Cartesian (Cross) Joins
+
+# Not frequently used
+
+# Computationally taxing
+
+# Will return products with the incorrect vendor or no vendor at all.
+
+
+# Example
+SELECT product_name, unit_price, company_name 
+FROM suppliers CROSS JOIN products;
+
+
+
+### Learning objectives of Inner Join
+
+# Define and describe an inner joins
+
+# Explain when and how to use an inner joins
+
+# Pre-quality column names to make your SQL code that much cleaner and efficient
+
+
+
+### What is an Inner Join
+
+# The "INNER JOIN" keyword selects records that have matching values in both tables
+
+
+
+### Inner Join Example
+
+SELECT suppliers.CompanyName, ProductName, UnitPrice
+FROM Suppliers INNER JOIN Prodicts
+ON Suppliers.supplierid = Products.supplierid
+
+
+
+### Inner Join syntax
+
+# Join type is specified (INNER JOIN)
+
+# Join condition is in the FROM clause and uses th ON clause
+
+# Joining more tables together affects overal databse performance
+
+# You can join multiple tables, no limit
+
+# List all the tables, then define conditions
+
+
+
+# Example
+
+SELECT o.OrderID, c.CompanyName, e.LastName
+FROM ( (Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID )
+INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID )
+
+
+
+### Best Practices With Joins
+
+# Make sure you are pre-qualifying names
+
+# Do not make unnecessary joins
+
+# Think about the type of join you are making
+
+# How are you connecting records ?
+
+
+
+### Aliases and Slef Joins
+
+### Learning objectives of Aliases and self joins
+
+# Create aliase for use in our queries
+
+# Discuss common nameing conventions when using Aliases
+
+# Discuss and establisth self-joins within a SQL database
+
+# Example
+
+SELECT column_name FROM table_name AS alias_name
+
+
+
+### Quert Example using Aliases
+
+# Normal usage
+
+SELECT vendor_name, product_name, product_price
+FROM Vendors, Products
+WHERE Vendors.vendor_id = Products.vendor_id;
+
+
+
+# Short-cut with using alias
+
+SELECT vendor_name, product_name, product_price
+FROM Vendors AS v, Products AS p
+WHERE v.vendor_id = p.vendor_id;
+
+
+
+### Self Joins
+
+# Match customers from the same City
+
+# Take the table and treat it like two separable tables
+
+# Join the original table to itself
+
+# Example
+SELECT column_name(s)
+FROM table1 T1, table2 T2 
+WHERE condition;
+
+
+### Self Join Example
+
+# The following SQL statement matches customers that are from the same city:
+
+# Example
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B 
+WHERE A.ClustomerID = B.customerID
+AND A.CIty = B.City
+ORDER BY A.City;
+
+
+
+### SQL Lite vs. Other SQL DBMS
+
+# SQL Lite only does Left joins
+
+# Other database management systems use all joins
+
+
+
+### Learning objectives of Advanced Joins (Left, Right, and Full outer Joins)
+
+# Explain how left, right, and full outer joins work
+
+# Identify situations to use each type of join
+
+# Use each type of join to combine data from multiple tables.
+
+
+
+### Left Join
+
+# Returns all records from the left table (table_#1), and the matched records
+# from the right table (table_#2)
+
+# The result is NULL from the right side, if there is no match.
+
+Table_#1    Table_#2
+
+
+
+### Right Join
+
+# Returns all record from theright table (table_#2), and the matched records
+# from the left table (table_#1)
+
+# The result is NULL from the left side, if there is no match.
+
+Table_#1    Table_#2
+
+
+
+### Full Outer Join
+
+# Return all records when there is a match in either left (table_#1) or right (table_#2)
+# table records
+
+# Give me everything
+
+
+
+### Example of Left Join
+
+The following SQL statement will select all customers, and any orders they might have:
+
+SELECT C.CustimerName, O.OrderID
+FROM Customers CA
+LEFT JOIN Orders O ON C.CustomerID = O.CustomerID 
+ORDER BY C.CustomerName;
+
+
+
+### Example of Right Join
+
+The following SQL statement will return all employees, and any other orders they might have placed:
+
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON
+Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID
+
+
+
+### c.f. Left Join vs Right Join
+
+Difference between right and left is the order the tables are relating
+
+Left joins can be turned into right joins by reversing the order of the tables
+
+
+
+### Full Outer Join
+
+# Full join / The following SQL statement selects all customers, and all orders:
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustimerID = Orders.CustimerID
+ORDER BY Customers.CustimerName;
+
+
+
+### Learning Objectives of UnitsOnOrder
+
+# Describe what a UNION is and how it works
+
+# Discuss the rules for using UNIONs
+
+# Write correct syntax for a UNION statement
+
+# Describe common situtaions in which UNIONS are useful
+
+
+
+### What is a Union?
+
+# The UNION operator us used to combine the result-set of two or more SELECT statements
+
+# Each SELECT statement within UNION must have the same number of columns
+
+# Columns must have similar data types
+
+# The column in each SELECT statement must be in the same order
+
+
+
+### Union Example
+
+# Query_#1
+
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+
+
+# Query_#2
+
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+
+
+
+### Best Practices Using Joins
+
+# It is easy to get results - you must make sure they are the right results
+
+# Check the number of records
+
+# Does it seem logical given the kind of join you are performing?
+
+# Check for duplicates
+
+# Check the number of records each time you make a new join
+
+# Are you getting the results you expected?
+
+# Start small: one table at a time
+
+
+
+### Slowly Do
+
+# Think about what you are trying to do first
+
+# Map how you are joining data tables
+
+# Think about what your query is trying to do
+
+# Thinking first now will save time and frustration later
+
+
+
+### Use a JOIN condition
+
+# Cartesian CROSS JOIN
+
+# Inner Join
+
+# Left Join
+
+# Right Join
+
+
+
+### Joins and Database Performance
+
+# The more tbles you join, the slower the database will performance
+
+# Don't grab unnecessary data if you don't need to
+
+# Be stragegic
+
+# Take only what you need.
+
+
+
+### Join syntax
+
+# Always check the particular syntax for your DBMS
+
+# Remember SQLite does not do RIGHT and FULL OUTER joins
+
+
+
+### Methods for modifying data
+
+# Concatenating
+
+# Trimming
+
+# Changing case 
+
+# Substring function
+
+# Data and time strings
+
+
+
+### Case statements
+
+# SQL's version of IF, THEN, ELSE statements
+
+
+
+### Data governance and profiling
+
+# Tips and tricks for using SQL for data science
+
+# Putting it all together
+
+
+
+### Learning objective of Working with text strings
+
+# Concatenate, or combine text strings
+
+# Trim text strings
+
+# Use the substring function and
+
+# Change the case of your strings
+
+
+
+### Working with String variables
+
+# Retrieve the data in the format you need Client vs server formatting
+
+# Support Joins
+
+# String Functions:
+#           Concatenate
+#           Substring
+#           Trim
+#           Upper
+#           Lower
+
+
+
+### Concatenations
+
+# Note:
+# SQL server supports + instead of ||
+
+# Example
+SELECT CompanyName, ContactName, CompanyName || ' (' || ContactName || ')'
+FROM customers
+
+
+
+### Trimming String
+
+# Trims the leading or trailing space from a string
+
+# TRIM 
+# RTRIM
+# LTRIM
+
+# Example
+SELECT TRIM("    You the best    ") AS TrimmedString;
+
+
+
+### Substring
+
+# Returns the specified number of haracters from a particular position of a given string
+
+-------------------------------------------------------------
+First_name              substr(first_name, 2, 3)
+-------------------------------------------------------------
+Alexander               lex
+-------------------------------------------------------------
+Bruce                   ruc 
+-------------------------------------------------------------
+David                   avi 
+-------------------------------------------------------------
+Valli                   all 
+-------------------------------------------------------------
+Diagrans                ian
+-------------------------------------------------------------
+
+# SYNTAX of SUBSTR
+SUBSTR(string name, string position, number of characters to be returned);
+
+# Example
+SELECT first_name, SUBSTR( first_name, 2, 3) 
+FROM employees
+WHERE department_id = 60
+
+
+
+### Substring Example
+
+SELECT first_name, SUBSTR(first_name, 3, 4)
+FROM employees
+WHERE department_id = 100
+
+---------------------------------------------------------------------------------
+First_name              substr(first_name, 3, 4)            substr(first_name, 1, 3)
+---------------------------------------------------------------------------------
+Nancy                   ncy                                 Nan
+---------------------------------------------------------------------------------
+Daniel                  niel                                Dan
+---------------------------------------------------------------------------------
+Andrew                  drew                                And
+---------------------------------------------------------------------------------
+Margaret                rgar                                Mar
+---------------------------------------------------------------------------------
+Jose                    se                                  Jos
+---------------------------------------------------------------------------------
+Michael                 chae                                Mic
+---------------------------------------------------------------------------------
+Robert                  bert                                Rob
+---------------------------------------------------------------------------------
+Luis                    is                                  Lui
+---------------------------------------------------------------------------------
+Anne                    ne                                  Ann
+---------------------------------------------------------------------------------
+
+
+
+### Upper and Lower
+
+SELECT UPPER( column_name ) FROM table_name;
+
+SELECT LOWER( column_name ) FROM table_name;
+
+SELECT UCASE( column_name ) FROM table_name;
+
+
+
+### Learning objective of working with Data and Time strings
+
+# Describe the complexities of adjusting data and time strings
+
+# Discuss the different formats in which dates and times are presented
+
+# List and describe the 5 different functions in SQL that can be used to manipulate date and time strings
+
+
+
+### Working with data variables
+
+# As long as your data contains only the date portion, your queries will work as expected.
+# However, if a time portion is involved, it gets more complicated.
+
+# The most difficult part when working with dates is to be sure that the format of the date you
+# are trying to insert, matches the format of date column in the database.
+
+# Dates are stored as datetypes
+
+# Each DBMS use its own variety of datatypes
+
+Wednesday, September 17th, 2008
+9/17/2008 5:14:56 P.M. EST 
+9/17/2008 19:14:56 GMT 
+2612008 (Julian format)
+
+
+
+### Date formats
+
+# DATE 
+Format YYYY-MM-DD 
+
+# DATETIME
+Format: YYYY-MM-DD HH:MI:SS 
+
+# TIMESTAMP
+Format: YYYY-MM-DD HH:MI:SS 
+
+If you query a DATETIME with
+WHERE PurchaseDate='2016-12-12'
+
+You will get not results
+
+
+
+### SQLite Date Time Functions
+
+SQLite supports 5 date and time functions:
+
+DATE(timestring, modifier, modifier, ...)
+TIME(timestring, modifier, modifier, ...)
+DATETIME(timestring, modifier, modifier, ...)
+JULIANDAY(timestring, modifier, modifier, ...)
+STRFTIME(format, timestring, modifier, modifier, ...)
+
+
+
+### Timestrings
+
+A time string can be in any of the following formats
+
+YYYY-MM-DD
+
+YYYY-MM-DD HH:MM
+YYYY-MM-DD HH:MM:SS
+YYYY-MM-DD HH:MM:SS.SSS 
+
+YYYY-MM-DDTHH:MM
+YYYY-MM-DDTHH:MM:SS 
+YYYY-MM-DDTHH:MM:SS.SSS 
+
+HH:MM
+HH:MM:SS
+HH:MM:SS.SSS
+
+
+
+### Modifiers
+
+NNN days            start of year
+NNN hours           start of day 
+NNN miniutes        weekday N 
+NNN.NNNN seconds    unixepoch 
+NNN months          localtime
+NNN years           utc 
+start of month
+
+
+
+### Learning objectives of Date and Time Strings Example 
+
+# Use the STRFTTIME function
+
+# Compute current date and use it to compare to a recorded date in your data
+
+# Use the NOW function 
+
+# Combine several date and time functions together to manipulate data
+
+
+
+# Examle 
+
+SELECT Birthdate
+, STRFTIME('%Y', Birthdate ) AS Year
+, STRFTIME('%Y', Birthdate ) AS Month
+, STRFTIME('%d', Birthdate ) AS Day
+FROM employees
+
+
+
+### Compute Current Date
+
+SELECT DATE('now')
+
+
+
+### Compute Year, Month, and Day for the Current Date
+
+SELECT STRFTIME('%Y %m %d', 'now' )
+
+
+
+### Compute the Hour, Minute, Second, and Milliseconds from Current DATETIME
+
+SELECT STRFTIME('%H %M %S %s', 'now');
+
+
+
+
+### Compute Age using Birthdate
+
+SELECT Birthdate
+, STRFTIME('%Y', Birthdate ) AS Year
+, STRFTIME('%m', Birthdate ) AS Month
+, STRFTIME('%d', Birthdate ) AS Day
+, DATE( ('now') - Birthdate ) AS Age
+FROM employees
+
+
+
+### Learning objectives of Case statements
+
+# Define what a CASE statement does
+
+# Describe situations where a CASE statement is useful
+
+# Explain the parts of CASE statement syntax
+
+# Use a CASE statement with correct syntax
+
+# Explain how to categorize, or bin, your data
+
+
+
+### WHat is a Case Statement 
+
+# Mimics if-then-else statement found in most programming languages
+
+# Can be used in SELECT, INSERT, UPDATE, and DELETE statements
+
+# General from
+
+CASE
+WHEN C1 THEN E1
+WHEN C2 THEN E2
+...
+ELSE [result else]
+END
+
+
+
+# General form with expression
+
+CASE input_expression
+    WHEN when_expression THEN reulst_expression [ ...n ]
+    [ ELSE else_result_expression ]
+END
+
+
+
+### Simple Case Statement
+
+SELECT
+EmployeeID,
+, FirstName
+, LastName
+, City
+, CASE City
+    WHEN 'Calgary' THEN 'Calgary'
+ELSE 'Other'
+    END calgary 
+FROM Employees
+ORDER BY LastName, FirstName;    
+
+
+
+### Search Case Statement
+
+CASE WHEN Boolean_expression
+THEN result_expression [...n]
+[ELSE else_result_expression ]
+END 
+
+
+
+# Example
+
+SELECT
+trackid
+,name
+,bytes
+,CASE
+WHEN bytes < 300000 THEN 'small'
+WHEN bytes >= 300001 AND bytes <= 500000 THEN 'medium'
+WHEN bytes >= 500001 THEN 'large'
+ELSE 'Other'
+END bytescategory
+FROM
+tracks
+
+
+
+### Learning objective of Views
+
+# Discuss how and when to use views with queries
+
+# Explain how to use the AS function with views
+
+# Explain the benefits and limitations of using views
+
+
+
+### Overiwe of views
+
+# A stored query
+
+# Can add or remove columns without changing schema
+
+# Use it to encapsulate queries
+
+# The view will be removed after databse connection has ended
+
+
+
+# Example
+
+CREATE [TEMP] VIEW [IF NOT EXISTS]
+view_name(column-name-list)
+AS
+select-statement;
+
+
+
+### Creating a View
+
+CREATE VIEW my_view
+AS
+SELECT
+r.regiondescription
+, t.territorydescription
+, e.LastName
+, e.FirstName
+, e.Hiredate
+, e.Reportsto
+FROM Region r
+INNER JOIN Territories t on r.regionid = t.regionid
+INNER JOIN Employeeterritories et on t.TerritoryID = et.TerritoryID
+INNER JOIN Employees e on et.EmployeeID = e.EmployeeID
+
+
+
+### Why use Views
+
+# Get a count of how many territories each employee has
+
+SELECT count(territorydescription)
+, LastName
+, FirstName
+FROM my_view
+GROUP BY LastName, FirstName;
+
+
+
+### Learning objective of Data Governance and data profiling
+
+# Define data governance and profiling
+
+# Explain importance of data governance and profiling your data appropriately
+
+# Discuss methods of profiling your data
+
+
+
+### What is data profiling?
+
+# Looking at descriptive statistics or object data information
+# - examining data for completeness and accuracy
+
+# Impoert to understand yor data before you query it.
+
+
+
+### Object data profile
+
+# Number of rows
+
+# Table size
+
+# When the object was last Updated
+
+
+
+### Column Data profile
+
+## Column data type
+
+## Number of distinct values
+
+## Number of row with NULL values
+
+## Descriptive statistics: 
+# maximum, 
+# average, and 
+# standard deviation for column values
+
+
+
+### Governane Best Practices
+
+# Understand your read and write capabilities
+
+# Clean up your environments
+
+# Understand your promotion process
+
+
+
+### Learning objective of using SQL for Data Science_Part_#1
+
+# Discuss importance of understanding your data when starting a new problem
+
+# Discuss importance of understanding business needs before beginning data analysis
+
+
+
+### Working through a problem from beginning to end
+
+# Data understanding
+
+# Business understanding
+
+# profiling
+
+# Start with SELECT query
+
+# Test  
+
+# Format & Comment 
+
+# Review
+
+
+
+### Data understanding
+
+*** Most important step ***
+
+# Understanding relationship in your data ( via ER model)
+
+# NULL values
+
+# String values
+
+# Dates and times
+
+
+
+### Subject area understnding
+
+# Until you gain business understanding, writing queries may take more time
+
+# Understanding where data joins are
+
+# Differentiating integers from strings
+
+# Investing time to understand your subject will help later during data analysis
+
+
+
+### Business understanding
+
+# Ask question about business problem you are solving
+
+# Hard to separate data and business understanding
+
+# Data understanding <===> Business understanding
+
+
+
+### *** Beware of the unspolen need ***
+
+# We want to predit whether or not a customer is likely to buy our product.
+
+# Which customers?
+
+# What product?
+
+# What is/should be excluded?
+
+# WHat is/should be counted from past?
+
+
+
+### Learning objective of using SQL for Data Science_Part_#2
+
+# Determine and map out data elements needed for a query.
+
+# Discuss strategies to use to write complex queries
+
+# Explain common troubleshooting techniques
+
+
+
+### Profiling Data
+
+# Get into the details of your data
+
+# Create a data model and map the fields and tables you need
+
+# Consider joins and calculations
+
+# Understand any data quality or format issues
+
+
+
+### Start with SELECT
+
+# Start Simple
+
+# Any query begins with SELECT statement
+
+# Add in special formatting
+
+# If using subqueries, start with the inner-most query and work outward.
+
+
+
+### Test and troubleshoot 
+
+# Do not wait until the end to test queries
+
+# Test after each join or filter
+
+# Are you getting the results you expect?
+
+# Start small and go step-by-step when troubleshooting a query
+
+
+
+### Format and Comment
+
+# Use correct formatting and indentation
+
+# Comment strategically
+
+# Clean code and comments help when you revisit or hand off code
+
+
+
+### Review
+
+# Always review old queries
+
+# Business rules
+
+# Date changes 
+
+# Date Indicators
+
+# Work the problem for beginning to end
+
+
+
+### ACID
+
+# Atomicity
+
+# Consistency
+
+# Isolation
+
+# Durability

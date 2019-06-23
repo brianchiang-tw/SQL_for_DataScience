@@ -1,0 +1,119 @@
+
+#_1:
+
+Q: 
+Which of the following are supported in SQL when dealing with strings? (Select all that apply)
+
+A:
+Upper
+Trim
+Lower
+Concatenate
+Substring
+
+
+
+#_2:
+
+Q:
+What will the result of the following statement be?
+SELECT SUBSTR('You are beautiful.', 3)
+
+A:
+u are beautiful.
+
+
+
+#_3:
+
+Q:
+What are the results of the following query?
+select * orders
+where order_date = ‘2017-07-15’
+
+Additional information:
+
+Orders = integer
+Order_date = datetime
+
+A:
+You won't get any results.
+
+
+
+#_4:
+
+Q:
+Case statements can only be used for which of the following statements (select all that apply)?
+
+A:
+INSERT
+DELETE
+UPDATE
+SELECT
+
+
+
+#_5:
+
+Q:
+Which of the following is FALSE regarding views?
+
+A:
+Views will remain after the database connection has ended
+
+
+
+#_6:
+
+Q:
+You are only allowed to have one condition in a case statement. True or false?
+
+A:
+False
+
+
+
+#_7:
+
+Q:
+Select the correct SQL syntax for creating a view.
+
+A:
+CREATE VIEW
+customers AS
+SELECT * 
+FROM customers
+WHERE Name LIKE '%I'
+
+
+
+#_8:
+
+Q:
+Profiling data is helpful for which of the following? (Select all that apply)
+
+A:
+Filter out unwanted data elements
+Understanding your data
+
+
+
+#_9:
+
+Q:
+What is the most important step before beginning to write queries?
+
+A:
+Understanding your data
+
+
+
+#_10:
+
+Q:
+When debugging a query, what should you always remember to do first?
+
+A:
+Start simple and break it down first
+
