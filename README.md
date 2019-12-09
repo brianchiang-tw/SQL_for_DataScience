@@ -8,6 +8,6 @@ The SQL language used here is SQLite:
 https://www.sqlite.org/index.html
 
 Study note
-[Study note txt file]("https://bit.ly/344CPcX")
+[Study note txt file](https://bit.ly/344CPcX)
 
 [I'm an inline-style link](https://www.google.com)
